@@ -8,22 +8,31 @@ public class Driver_Dijkstra {
 
 	public static void main(String[] args) {
 		
+		
 		/** Parses file (as args) to create hash table and create graph. Prints results as adjacency list */
 		ParseArgs parse = new ParseArgs(args);
 		System.out.println("PRINT GRAPH"+"\n");
 		parse.printGraph();
 		
-		
-		
 		/** gets all edges as a graph, and creates new table with distance=max, path=-1, and known=false */
 		Edge[] graph = parse.returnEdgeArray();
-		BuildDijkstra dijk = new BuildDijkstra(graph.length);
-		Node[] newTable = dijk.returnTable();
-		
+		Node[] newTable = new Node[graph.length];
+		newTable = buildNewTable(newTable, graph.length);
 		
 		/** Initiates BQ and removes from BQ */
 		buildBQ(graph, 0, newTable);
 
+	}
+	
+	/** Builds table to be used to create BQ */
+	public static Node[] buildNewTable(Node[] table, int graphLength) {
+		
+		table = new Node[graphLength];
+		
+		for(int i = 0; i < graphLength; i++) {
+			table[i] = new Node();
+		}
+		return table;
 	}
 
 	/** Initiate and insert BQ. Then remove smallest priority and get shortest distance between nodes */

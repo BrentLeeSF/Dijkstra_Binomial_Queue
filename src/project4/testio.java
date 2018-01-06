@@ -4,7 +4,9 @@ import java.io.*;
 
 
 class testio {
-
+	
+	
+	/** Prints input.txt */
 	public static void main(String args[]) {
 
 		BufferedReader input;
@@ -28,11 +30,14 @@ class testio {
 			while (nextLine != null) {
 				
 				System.out.println(nextLine);
+				
 				nextLine = input.readLine();
 				System.out.println(nextLine);
+				
 				nextLine = input.readLine();
 				intvalue = Integer.valueOf(nextLine).intValue();
 				System.out.println(Integer.toString(intvalue));
+				
 				nextLine = input.readLine();
 				
 			}

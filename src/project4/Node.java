@@ -10,7 +10,6 @@ public class Node {
 	private boolean known;
 	
 	
-	//TODO called in BuildDijkstra
 	public Node() {
 		
 		this.setDistance(Integer.MAX_VALUE);

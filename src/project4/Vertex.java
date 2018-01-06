@@ -17,9 +17,6 @@ public class Vertex {
 	private String path;
 	
 	
-	// vertex should have index and city
-	// edge should have distance and next
-	
 	public Vertex(String key, int value, Vertex next) {
 		
 		this.key = key;

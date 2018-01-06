@@ -109,7 +109,6 @@ public class BinomialQueue {
 					}
 					
 					/** This restructures the BQ (looks like a tree, or a heap), increase min's degree, then returns to combine
-					 * 
 					 * Sets min priorty as parent, min's left set to max, min's right set to rightRight
 					 * max priority's parent is min, and sets max's right to min's left */
 					maxPriority.setParent(minPriority);
@@ -252,11 +251,10 @@ public class BinomialQueue {
 	}
 
 	
-	/** After the smallest value (index of mileage/distance from table) has been removed, 
+	/** We basically move the newLink as parent node of BQ
+	 * After the smallest value (index of mileage/distance from table) has been removed, 
 	 * we get passed the neighbor of the value removed as the new table index (newIndex)
-	 * (from Driver) in this case it's from the linkListArray 
-	 * 
-	 * We basically move the newLink as parent node of BQ */
+	 * (from Driver) in this case it's from the linkListArray */
 	public void decreaseKey(int newIndex, int newPriority){
 		
 		Link newNode = linkListArray[newIndex];

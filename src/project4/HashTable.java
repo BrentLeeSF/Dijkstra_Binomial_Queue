@@ -7,29 +7,18 @@ public class HashTable {
 	
 	int tableSize;
 	Vertex[] table;
-	Vertex[] arr;
 
-	//TODO called in Parse
+	
+	/** Creates array of vertexes size of length and sets size */
 	HashTable(int length) {
 		
 		table = new Vertex[length];
-		arr = new Vertex[length];
 		setSize(length);
 	}
 	
-	/*
-	public void createStuff(int size) {
-		
-		for (int i = 0; i < tableSize; i++) {
-			
-			table[i] = null;
-			arr[i]  = null;
-			
-		}
-	}*/
-
-	//TODO - used here
-	/** Used to map data of arbitrary size to data of fixed size */
+	
+	/** Used to map data of arbitrary size to data of fixed size.
+	 * Called in find and delete */
 	static long ELFhash(String key, int tablesize) {
 		
 		long h = 0, g = 0;
@@ -49,13 +38,8 @@ public class HashTable {
 		return h % tablesize;
 	}
 	
-	//TODO called in parse
-	/**
-	 * Returns location/index of city
-	 * @param key
-	 * @return
-	 * @throws IllegalArgumentException
-	 */
+
+	/** Receives city as string, and returns index of city in vertex array */
 	public Integer find(String key) throws IllegalArgumentException {
 
 		int hash = (int)ELFhash(key, table.length);
@@ -70,23 +54,13 @@ public class HashTable {
 			while(temp != null && !temp.getKey().equalsIgnoreCase(key)) {
 				temp = temp.getNext();
 			}
-			
-			return temp.getValue();
-			
-		}
 
-		// 1 elf for index
-		// if hash table sub index is null, else itereate through until find node
-		// return int in node
-
-		/*for(Vertex v: table) {
-			if(v.getKey().equalsIgnoreCase(key)) {
-				return v.getValue();
-			}
-		}*/
+			return temp.getValue();			
+		}	
 	}
 
-	
+	/** Receives city as string, gets index of city in table
+	 * sets current table entry as table entries next vertex */
 	public void delete(String key) {
 
 		int hash = (int)ELFhash(key, table.length);
@@ -94,9 +68,7 @@ public class HashTable {
 		if(table[hash] == null) {
 			return;
 			
-		} else if(table[hash].getKey().compareTo(key) ==0) {
-			
-			//			&& table[hash].getNext() != null) {
+		} else if(table[hash].getKey().compareTo(key) == 0) {
 			table[hash] = table[hash].getNext();
 			
 		} else {
@@ -106,44 +78,27 @@ public class HashTable {
 			while(temp.getNext() != null) {
 				
 				if(temp.getNext().getKey().compareTo(key) == 0) {
-					
 					temp.setNext(temp.getNext().getNext());
 					break;
 					
 				} else {
 					temp = temp.getNext();
-				}
-				
+				}	
 			}
-
 		}
-
-		/*for(Vertex v: table) {
-			if(v.getKey().equalsIgnoreCase(key)) {
-				v.setKey(null);
-			}
-		}*/
 	}
 
 	
-	//TODO called in parse
-	/**
-	 * 1. If string value in table is null, create vertex and insert into table and array
-	 * 2. Else gets current vertex from table at index. Iterate until null. Create new
-	 * vertex and set current's next to new vertex
-	 * @param value
-	 * @param key
-	 */
+	/** Receives city as key, and index as value and inserts into table as vertex */
 	public void insert(int value, String key) {
-
+	
 		int hash = (int)ELFhash(key, table.length);
 		Vertex curr = null;
 		
 		if(table[hash] == null) {
 			
 			Vertex newVertex = new Vertex(key, value, null);
-			table[hash] = newVertex;
-			arr[hash] = newVertex;	
+			table[hash] = newVertex;	
 			
 		} else {
 			
@@ -160,37 +115,6 @@ public class HashTable {
 		}
 	}
 	
-	
-	//TODO called in parse to print graph
-	/**
-	 * Return table (vertex array)
-	 * @return
-	 */
-	/*public Vertex[] getTable() {
-		return table;
-	}*/
-
-	
-	/*public void printHash() {
-		
-		//System.out.println("Q*$(*Q^YQ(* "+table.length);
-		for(int i = 0; i < table.length; i++) {
-			
-			if(table[i] != null) {
-				
-				while(table[i] != null) {
-					
-					System.out.println("Hash: "+i+ " "+table[i].getKey()+ ", "+table[i].getValue());
-					table[i] = table[i].getNext();
-				}
-				
-			}
-
-		}
-
-	}*/
-
-	//TODO called here
 	public void setSize(int tableSize) {
 		this.tableSize = tableSize;
 	}
