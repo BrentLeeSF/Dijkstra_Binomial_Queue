@@ -1,0 +1,35 @@
+Value = 30, Priority = 30
+Value = 28, Priority = 28
+  Value = 29, Priority = 29
+Value = 24, Priority = 24
+  Value = 26, Priority = 26
+    Value = 27, Priority = 27
+  Value = 25, Priority = 25
+Value = 16, Priority = 16
+  Value = 20, Priority = 20
+    Value = 22, Priority = 22
+      Value = 23, Priority = 23
+    Value = 21, Priority = 21
+  Value = 18, Priority = 18
+    Value = 19, Priority = 19
+  Value = 17, Priority = 17
+Value = 0, Priority = 0
+  Value = 8, Priority = 8
+    Value = 12, Priority = 12
+      Value = 14, Priority = 14
+        Value = 15, Priority = 15
+      Value = 13, Priority = 13
+    Value = 10, Priority = 10
+      Value = 11, Priority = 11
+    Value = 9, Priority = 9
+  Value = 4, Priority = 4
+    Value = 6, Priority = 6
+      Value = 7, Priority = 7
+    Value = 5, Priority = 5
+  Value = 2, Priority = 2
+    Value = 3, Priority = 3
+  Value = 1, Priority = 1
+removeSmallest OK
+decreaseKey OK
+HashTable insert / find both look good
+HashTable delete looks good
