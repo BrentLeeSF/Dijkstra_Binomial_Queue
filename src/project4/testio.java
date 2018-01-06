@@ -13,7 +13,7 @@ class testio {
 
 		try {
 			
-			input = new BufferedReader(new FileReader(args[0]));
+			input = new BufferedReader(new FileReader("input.txt"));
 			nextLine = input.readLine();
 			
 			while (nextLine.compareTo(".") != 0) {
