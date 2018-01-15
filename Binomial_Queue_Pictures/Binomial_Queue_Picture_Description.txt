@@ -1,0 +1,3 @@
+1. Structure before we add node with element 31
+2 Structure after we add node with element 31
+3. Structure after we remove node with smallest element
