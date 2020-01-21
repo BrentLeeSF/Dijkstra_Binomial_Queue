@@ -1,4 +1,7 @@
 # Dijkstra_Binomial_Queue
+
+PLEASE NOTE: in order to run this, put index.txt in the args. Thanks :)
+
 Receives file as list of cities and distance between these cities. Creates an Adjacency List, graph, 
 then creates a Binomial Queue and uses Dijkstra's Algorithm to continually remove shortest distance between cities.
 
